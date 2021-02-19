@@ -1,0 +1,12 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'deploy-docker-container'
+    args:
+      - 'compute'
+      - 'instances'
+      - 'update-container'
+      - 'backend-server-docker'
+      - '--container-image'
+      - 'gcr.io/nazariibooking/github.com/adrianwilczynski4/backendbooking:latest'
+      - '--zone'
+      - '${_ZONE}'

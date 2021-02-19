@@ -1,0 +1,25 @@
+#ClusterIpService - for microservices fx
+
+#NodePort service - to fx proxy to correct pod
+
+#LoadBalancer exposed service externally includes 2 above
+
+#ExternalNameService -acts as an alias for external service, acts as a proxy,
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: booking
+  labels:
+    app: hotel-back-ser
+    app.kubernetes.io/managed-by: "gcp-cloud-build-deploy"
+
+spec:
+  type: LoadBalancer
+  loadBalancerIP: "35.242.243.55"
+  selector:
+      app: hotels-back
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 5080

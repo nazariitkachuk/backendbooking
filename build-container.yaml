@@ -1,0 +1,8 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    id: "docker-create-image"
+    args: ['build','.','-t','gcr.io/nazarii-tkachuk-book/github.com/adrianwilczynski4/backendbooking:latest']
+
+  - name: "gcr.io/cloud-builders/docker"
+    id: "docker-push"
+    args: ['push','gcr.io/nazarii-tkachuk-book/github.com/adrianwilczynski4/backendbooking:latest']

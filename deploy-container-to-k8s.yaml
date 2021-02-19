@@ -1,0 +1,9 @@
+steps:
+  - name: "gcr.io/cloud-builders/gke-deploy:stable"
+    id: "create-deployment"
+    args :
+      - 'run'
+      - '--filename=k8s-backend/'
+      - '--cluster=projects/nazarii-tkachuk-book/zones/${_ZONE}/clusters/my-common-gke'
+      - '--location=${_ZONE}'
+      - '--image=gcr.io/nazarii-tkachuk-book/github.com/adrianwilczynski4/backendbooking:latest'
